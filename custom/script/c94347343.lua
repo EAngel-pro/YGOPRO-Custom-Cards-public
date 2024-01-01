@@ -1,0 +1,45 @@
+--SL Warrior
+local s,id=GetID()
+function s.initial_effect(c)
+	--immune p.
+	local e1=Effect.CreateEffect(c)
+	e1:SetType(EFFECT_TYPE_SINGLE)
+	e1:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
+	e1:SetRange(LOCATION_MZONE)
+	e1:SetCode(EFFECT_IMMUNE_EFFECT)
+	e1:SetValue(s.efilter)
+	c:RegisterEffect(e1)
+	local e3=Effect.CreateEffect(c)
+	e3:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
+	e3:SetCode(EVENT_ATTACK_ANNOUNCE)
+	e3:SetCondition(s.condition)
+	e3:SetOperation(s.operation)
+	c:RegisterEffect(e3)
+	local e5=e3:Clone()
+	e5:SetCode(EVENT_BE_BATTLE_TARGET)
+	c:RegisterEffect(e5)
+end
+function s.efilter(e,te)
+	return te:IsActiveType(TYPE_SPELL+TYPE_TRAP)
+end
+function s.condition(e,tp,eg,ep,ev,re,r,rp)
+	local c=e:GetHandler()
+	local bc=e:GetHandler():GetBattleTarget()
+	if bc==c then bc=Duel.GetAttackTarget() end
+	e:SetLabelObject(bc)
+	return bc and bc:IsType(TYPE_EFFECT) and bc:IsRelateToBattle()
+end
+function s.operation(e,tp,eg,ep,ev,re,r,rp)
+	local tc=e:GetLabelObject()
+	if tc:IsFacedown() or not tc:IsRelateToBattle() then return end
+	local e1=Effect.CreateEffect(e:GetHandler())
+	e1:SetType(EFFECT_TYPE_SINGLE)
+	e1:SetCode(EFFECT_DISABLE)
+	e1:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_BATTLE)
+	tc:RegisterEffect(e1)
+	local e2=Effect.CreateEffect(e:GetHandler())
+	e2:SetType(EFFECT_TYPE_SINGLE)
+	e2:SetCode(EFFECT_DISABLE_EFFECT)
+	e2:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_BATTLE)
+	tc:RegisterEffect(e2)
+end
