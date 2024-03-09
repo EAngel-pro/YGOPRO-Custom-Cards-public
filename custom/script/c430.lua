@@ -114,4 +114,7 @@ if not CustomArchetype then
 	}
 	Card.IsArcher=MakeCheck({0x1F9},CustomArchetype.OCGArcher)
 
+	CustomArchetype.OCGUnderwater={511001172}
+	Card.IsUnderwater=MakeCheck({0x1FC},CustomArchetype.OCGUnderwater)
+
 end
