@@ -1,5 +1,6 @@
 #import glob
 import os
+import shutil
 from sys import exit
 
 #initialization
@@ -9,10 +10,12 @@ absPath2 = absPath[:-7]
 file1 = absPath2 + "/script"
 file2 = absPath2 + "/pics"
 file3 = absPath2 + "/expansions"
+file4 = absPath2 + "/puzzles"
 
 dir1="script"
 dir2="pics"
 dir3="expansions"
+dir4="puzzles"
 
 
 def menu():
@@ -22,28 +25,41 @@ def menu():
 	if choice == "1":
 		#script:
 		if os.path.exists(dir1):
+			#break0:
+			print("\nscript:\n")
 			fileNames = os.listdir(dir1)
 			for fileName in fileNames:
 				print(fileName)
-			#break1:
-			print("\nBREAK\n")
 		#pics:
 		if os.path.exists(dir2):
+			#break1:
+			print("\npics:\n")
 			fileNames2 = os.listdir(dir2)
 			for fileName2 in fileNames2:
 				print(fileName2)
-			#break2:
-			print("\nBREAK\n")
 		#expansions:
 		if os.path.exists(dir3):
+			#break2:
+			print("\nexpansions:\n")
 			fileNames3 = os.listdir(dir3)
 			for fileName3 in fileNames3:
 				print(fileName3)
+		#puzzles:
+		if os.path.exists(dir4):
+			#break3:
+			print("\npuzzles:\n")
+			puzsubs = os.listdir(dir4)
+			for puzsub in puzsubs:
+				fileNames4 = os.listdir(dir4 + "/" + puzsub)
+				for fileName4 in fileNames4:
+					print(puzsub+"/"+fileName4)
 		input()
 		menu()
 	if choice == "2":
 		#script:
 		if os.path.exists(dir1):
+			#break0:
+			print("\nscript:\n")
 			fileNames = os.listdir(dir1)
 			for fileName in fileNames:
 				fileGroup1 = file1 + "/" + fileName
@@ -52,10 +68,10 @@ def menu():
 					print(fileGroup1 + " deleted!")
 				else:
 					print(fileGroup1 + " does not exist.")
-			#break1:
-			print("\nBREAK\n")
 		#pics:
 		if os.path.exists(dir2):
+			#break1:
+			print("\npics:\n")
 			fileNames2 = os.listdir(dir2)
 			for fileName2 in fileNames2:
 				fileGroup2 = file2 + "/" + fileName2
@@ -64,10 +80,10 @@ def menu():
 					print(fileGroup2 + " deleted!")
 				else:
 					print(fileGroup2 + " does not exist.")
-			#break2:
-			print("\nBREAK\n")
 		#expansions:
 		if os.path.exists(dir3):
+			#break2:
+			print("\nexpansions:\n")
 			fileNames3 = os.listdir(dir3)
 			for fileName3 in fileNames3:
 				fileGroup3 = file3 + "/" + fileName3
@@ -76,6 +92,18 @@ def menu():
 					print(fileGroup3 + " deleted!")
 				else:
 					print(fileGroup3 + " does not exist.")
+		#puzzles:
+		if os.path.exists(dir4):
+			#break3:
+			print("\npuzzles:\n")
+			fileNames4 = os.listdir(dir4)
+			for fileName4 in fileNames4:
+				fileGroup4 = file4 + "/" + fileName4
+				if os.path.exists(fileGroup4):
+					shutil.rmtree(fileGroup4)
+					print(fileGroup4 + " deleted!")
+				else:
+					print(fileGroup4 + " does not exist.")
 		input()
 		menu()
 	if choice == "3":

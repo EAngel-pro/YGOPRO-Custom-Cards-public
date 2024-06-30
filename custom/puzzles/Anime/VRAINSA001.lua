@@ -1,0 +1,61 @@
+--VRAINSA001
+Debug.SetAIName("Ancient Ghost")
+Debug.ReloadFieldBegin(DUEL_ATTACK_FIRST_TURN+DUEL_SIMPLE_AI,4)
+Debug.SetPlayerInfo(0,100,0,0)
+Debug.SetPlayerInfo(1,4000,0,0)
+--[[message
+	Source: Yu-Gi-Oh! VRAINS - Episode 65
+]]
+--Deck0  
+--Strange area1 
+Debug.AddCard(98978921,1,1,LOCATION_MZONE,6,POS_FACEUP_ATTACK)--
+Debug.AddCard(32617464,1,1,LOCATION_MZONE,1,POS_FACEUP_ATTACK)--
+Debug.AddCard(34472920,1,1,LOCATION_MZONE,2,POS_FACEUP_ATTACK)--
+Debug.AddCard(32617464,1,1,LOCATION_MZONE,3,POS_FACEUP_ATTACK)--
+Debug.AddCard(23971061,1,1,LOCATION_MZONE,5,POS_FACEUP_ATTACK)--
+--Strange area0  
+local g1=Debug.AddCard(88093706,0,0,LOCATION_MZONE,3,POS_FACEUP_ATTACK)
+g1:CompleteProcedure()--Update Jammer
+Debug.AddCard(53309998,0,0,LOCATION_MZONE,4,POS_FACEUP_ATTACK)--
+
+--Token
+--Deck1
+
+--Backrow0   
+Debug.AddCard(27664101,0,0,LOCATION_SZONE,2,POS_FACEDOWN)--Link Restart
+Debug.AddCard(7092142,0,0,LOCATION_SZONE,3,POS_FACEDOWN)--
+
+--Backrow1   
+Debug.AddCard(4923662,1,1,LOCATION_SZONE,2,POS_FACEDOWN)--
+--graveyard0  
+Debug.AddCard(18789533,0,0,LOCATION_GRAVE,0,POS_FACEUP)--
+--Hand0   
+Debug.AddCard(46918794,0,0,LOCATION_HAND,0,POS_FACEDOWN)--
+Debug.AddCard(69196160,0,0,LOCATION_HAND,0,POS_FACEDOWN)--
+Debug.AddCard(22046459,0,0,LOCATION_HAND,0,POS_FACEDOWN)--
+Debug.AddCard(645087,0,0,LOCATION_HAND,0,POS_FACEDOWN)--
+
+--Extra0  
+Debug.AddCard(2220237,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+Debug.AddCard(79016563,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+Debug.AddCard(22862454,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+--	
+
+
+Debug.ReloadFieldEnd()
+Debug.ShowHint("Win in this turn!")
+aux.BeginPuzzle()
+--注释
+
+--LOCATION_DECK  卡组
+--LOCATION_SZONE  后场
+--LOCATION_GRAVE   墓地
+--LOCATION_HAND    手牌
+--LOCATION_MZONE   怪区
+--LOCATION_EXTRA  额外
+--POS_FACEDOWN   里侧
+--POS_FACEUP     表侧
+--POS_FACEUP_DEFENSE    表侧防守
+--POS_FACEUP_ATTACK     表侧攻击
+--Debug.PreEquip(e1,c1)  绑定e1和C1
+--Yu-Gi-Oh! ZEXAL - Episode 21

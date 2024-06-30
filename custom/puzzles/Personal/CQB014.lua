@@ -1,0 +1,42 @@
+--CQB014
+Debug.SetAIName("Snipsworth")
+Debug.ReloadFieldBegin(DUEL_ATTACK_FIRST_TURN+DUEL_SIMPLE_AI,5)
+Debug.SetPlayerInfo(0,8000,0,0)
+Debug.SetPlayerInfo(1,8000,0,0)
+--[[message
+	Name: Road Quasar
+	Complexity: 1/10
+	Master Rule: 5
+]]
+--Deck0   
+Debug.AddCard(71971554,0,0,LOCATION_DECK,0,POS_FACEDOWN)--
+Debug.AddCard(15341821,0,0,LOCATION_DECK,0,POS_FACEDOWN)--
+Debug.AddCard(9742784,0,0,LOCATION_DECK,0,POS_FACEDOWN)--	
+--Backrow1
+Debug.AddCard(44095762,1,1,LOCATION_SZONE,2,POS_FACEDOWN)--
+--MZ1
+Debug.AddCard(77360173,1,1,LOCATION_MZONE,2,POS_FACEUP_DEFENSE)--
+--Hand0   
+Debug.AddCard(20932152,0,0,LOCATION_HAND,0,POS_FACEDOWN)--	
+Debug.AddCard(41386308,0,0,LOCATION_HAND,0,POS_FACEDOWN)--
+Debug.AddCard(57421866,0,0,LOCATION_HAND,0,POS_FACEDOWN)--	
+--ED0  
+Debug.AddCard(50091196,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+Debug.AddCard(17994645,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+Debug.AddCard(2322421,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+Debug.AddCard(35952884,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)--
+
+Debug.ReloadFieldEnd()
+Debug.ShowHint("Win in this turn!")
+aux.BeginPuzzle()
+--LOCATION_DECK  卡组
+--LOCATION_SZONE  后场
+--LOCATION_GRAVE   墓地
+--LOCATION_HAND    手牌
+--LOCATION_MZONE   怪区
+--LOCATION_EXTRA  额外
+--POS_FACEDOWN   里侧
+--POS_FACEUP     表侧
+--POS_FACEUP_DEFENSE    表侧防守
+--POS_FACEUP_ATTACK     表侧攻击
+--Debug.PreEquip(e1,c1)  绑定e1和C1
