@@ -3,7 +3,7 @@ Duel.LoadScript("c430.lua")
 local s,id=GetID()
 function s.initial_effect(c)
 	--xyz summon
-	Xyz.AddProcedure(c,nil,4,2,aux.FilterFaceupFunction(Card.IsRank,3),aux.Stringid(id,0))
+	Xyz.AddProcedure(c,nil,4,2,aux.FaceupFilter(Card.IsRank,3),aux.Stringid(id,0))
 	c:EnableReviveLimit()
 	--Special summon
 	local e1=Effect.CreateEffect(c)

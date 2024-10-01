@@ -72,7 +72,8 @@ if not CustomArchetype then
 95515518,
 90290572,
 100200249,
-34755994
+34755994,
+71818935
 	}
 	Card.IsMoon=MakeCheck({0x1F7},CustomArchetype.OCGMoon)
 	
