@@ -85,7 +85,8 @@ if not CustomArchetype then
 160010045,
 511001287,
 31834488,
-35480699
+35480699,
+45852939
 	}
 	Card.IsEclipse=MakeCheck({0x1F8},CustomArchetype.OCGEclipse)
 	
